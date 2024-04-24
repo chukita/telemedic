@@ -13,9 +13,14 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <!-- Estilos de telemedicina -->
+        <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+        
 
         <!-- Estilos de AdminLTE -->
-    <link href="{{ asset('vendor/adminlte/dist/css/adminlte.css') }}" rel="stylesheet">
+        <link href="{{ asset('vendor/adminlte/dist/css/adminlte.css') }}" rel="stylesheet">
+    <link href="{{ asset('vendor/fontawesome-free/css/fontawesome.css') }}" rel="stylesheet">
+    <link href="{{ asset('vendor/fontawesome-free/css/solid.css') }}" rel="stylesheet">
 
         <!-- Styles -->
         @livewireStyles

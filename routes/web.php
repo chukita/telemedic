@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Livewire\Inicio;
+use App\Livewire\Paciente\Inicio;
+use App\Livewire\Paciente\SolicitudMedica;
 
 Route::get('/', function () {
     return view('welcome');
@@ -16,5 +17,7 @@ Route::middleware([
    /* Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');*/
-    Route::get('/inicio', Inicio::class)->name('inicio');
+    Route::get('/paciente/inicio',Inicio::class)->name('paciente.inicio');
+    Route::get('/paciente/solicitud-medica',SolicitudMedica::class)->name('paciente.solicitud-medica');
 });
+

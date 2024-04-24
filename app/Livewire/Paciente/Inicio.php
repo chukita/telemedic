@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Paciente;
 
 use Livewire\Component;
 
@@ -8,6 +8,6 @@ class Inicio extends Component
 {
     public function render()
     {
-        return view('livewire.inicio');
+        return view('livewire.paciente.inicio');
     }
 }
