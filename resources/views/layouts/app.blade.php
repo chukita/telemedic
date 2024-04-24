@@ -14,6 +14,9 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
+        <!-- Estilos de AdminLTE -->
+    <link href="{{ asset('vendor/adminlte/dist/css/adminlte.css') }}" rel="stylesheet">
+
         <!-- Styles -->
         @livewireStyles
     </head>
@@ -41,5 +44,7 @@
         @stack('modals')
 
         @livewireScripts
+ <!-- Scripts de AdminLTE -->
+ <script src="{{ asset('vendor/adminlte/dist/js/adminlte.js') }}"></script>
     </body>
 </html>
