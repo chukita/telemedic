@@ -33,7 +33,7 @@ return new class extends Migration
             $table->boolean('medicacion');
             $table->string('details_medicacion')->nullable();
             $table->boolean('dona_sandre');
-            $table->string('details_dona_sangre')->nullable();
+            $table->string('details_dona_sandre')->nullable();
             $table->boolean('tabaquismo');
             $table->string('details_tabaquismo')->nullable();
             $table->boolean('alcoholismo');
