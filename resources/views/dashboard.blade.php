@@ -6,6 +6,6 @@
     </x-slot>
 
     <div class="py-12">
-        @livewire('historia-clinica')
+    @livewire('formulario-antecedentes')
     </div>
 </x-app-layout>
