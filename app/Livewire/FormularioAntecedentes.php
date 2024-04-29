@@ -127,10 +127,23 @@ class FormularioAntecedentes extends Component
             'causa_hno2' => ''
     ];
 
+    public $HayAntecedentes;
 
     public function mount(){
 
         $this->userId = auth()->user()->id;
+        
+
+        $ant = HcAntecedentes::where('userId', $this->userId)->first();
+
+        // Si no hay registro, crear uno nuevo
+        if ($ant==null) {
+            $this->HayAntecedentes = new HcAntecedentes();
+            $this->HayAntecedentes->userId = $this->userId;
+            
+            // Aquí establece los valores para los campos del registro
+            $this->HayAntecedentes->save(); }
+        
         $this->edit($this->userId);
 
     }
