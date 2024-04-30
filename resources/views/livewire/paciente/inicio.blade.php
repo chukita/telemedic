@@ -11,7 +11,7 @@
 
               <div class="icon-box aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
             <div class="icon"><i class="fas fa-user-md"></i></div>
-              <h4 class="title"><a href="{{ route('paciente.solicitud-medica') }}">Solicitud de Consulta Médica</a></h4>
+              <h4 class="title"><a href="{{ route('paciente.listado-solicitud-medica') }}">Solicitud de Consulta Médica</a></h4>
               <p class="description">Realice una solicitud de consulta médica ingresando los datos del motivo de la consulta</p>
             </div>
            
