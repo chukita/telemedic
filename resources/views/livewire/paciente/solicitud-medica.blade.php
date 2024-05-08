@@ -13,6 +13,12 @@
           <p>Realice una solicitud de consulta médica ingresando los datos del motivo de la consulta.</p>
         </div>
 
+        @if($guardadoExitoso)
+            <div class="alert alert-success">
+                Los datos se guardaron correctamente.
+            </div>
+        @endif
+
         <form wire:submit="save">
             <div class="card-body">
             <div class="form-group">
@@ -26,9 +32,9 @@
             @if($id)
                 <x-textarea wire:model="descripcion" class="w-full" disabled></x-textarea>
             @else
-                <x-textarea wire:model="descripcion" class="w-full"></x-textarea>
+                <x-textarea wire:model.live="descripcion" id="descripcion" class="w-full"  maxlength="500"></x-textarea>
             @endif
-            <x-input-error for="descripcion"/>
+                       <x-input-error for="descripcion"/>
             </div>
             @if($id)
             <div class="form-group">
@@ -42,9 +48,11 @@
                 </div>
                 @endif
             <div class="flex justify-end">
-              @if (!$id)
+              @if (!$id )
+              @if(!$guardadoExitoso)
+
               <x-button>Guardar</x-button>
-                
+              @endif
               @endif
            
                   </div>
@@ -58,3 +66,4 @@
       </div>
 
 </div>
+

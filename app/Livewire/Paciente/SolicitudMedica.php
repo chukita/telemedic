@@ -3,17 +3,21 @@
 namespace App\Livewire\Paciente;
 
 use Livewire\Component;
+use Livewire\Attributes\Rule;
 use App\Models\SolicitudesMedicas;
 
 
 class SolicitudMedica extends Component
 {
     public $solicitud;
+    #[Rule('required|min:3|max:500')]
     public $descripcion;
+    #[Rule('required')]
     public $userId;
     public $id;
     public $created_at;
     public $estado;
+    public $guardadoExitoso = false;
 
  
     public function mount($id = null)
@@ -32,10 +36,9 @@ class SolicitudMedica extends Component
 
     public function save(){
 
-        $this->validate([
-            'descripcion'=>'required',
-            'userId'=>'required'
-        ]);
+      
+        $this->validate();
+
         $this->userId = auth()->user()->id;
 
         $this->solicitudMedica = new SolicitudesMedicas();
@@ -46,7 +49,9 @@ class SolicitudMedica extends Component
         $this->solicitudMedica->save();
         try {
             $this->solicitudMedica->save();
-            return view('livewire.paciente.listado-solicitud-medica');
+            $this->guardadoExitoso = true;
+
+            return view('livewire.paciente.solicitud-medica');
 
         } catch (Exception $e) {
          dd("error");

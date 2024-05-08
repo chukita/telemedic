@@ -11,8 +11,10 @@
                   <h2>Solicitudes de Consulta Médica</h2>
                   <p>Listado de Solicitudes de consultas médicas.</p>
                 </div>
-                <a href="{{ route('paciente.solicitud-medica') }}" class="btn btn-default">Crear Nueva</a>
-
+                <div class="flex justify-end">
+                <x-button><a style="color:white;" href="{{ route('paciente.solicitud-medica') }}">Crear Nueva</a>
+</x-button></div>
+<br/>
                 <table class="table table-bordered">
                     <thead>
                         <tr>
@@ -36,7 +38,7 @@
                         {{$solicitud->estado}}
                     </td> 
                     <td>
-                       <a href="{{ route('paciente.solicitud-medica', ['id' => $solicitud->id]) }}" class="btn btn-default">Ver</a>
+                        <x-button><a style="color:white;" href="{{ route('paciente.solicitud-medica', ['id' => $solicitud->id]) }}">Ver</a></x-button>
                     </td> 
                 </tr>  
                     @endforeach
