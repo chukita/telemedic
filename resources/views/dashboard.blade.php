@@ -7,7 +7,7 @@
 
     <div class="py-12">
         <div class="max-w-4xl mx-auto sm:px6 lg:px-8">
-                @livewire('formulario-antecedentes')
+                @livewire('formulario-historiaclinica-diagnostico')
         </div>
     </div>
 </x-app-layout>
