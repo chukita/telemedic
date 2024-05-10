@@ -5,9 +5,11 @@
     ['name' => 'Antecedentes', 'url' => route('paciente.solicitud-medica')],
   
   ]" />
-<h6 class="font-semibold leading-tight px-4 ">
-           Planilla de antecedentes
-        </h6>
+  <div class="section-title mt-4">
+          <h2>ANTECEDENTES</h2>
+          <p>Cargue o actualice sus antecedentes</p>
+        </div>
+
 <div >
 
 <form wire:submit="update">
@@ -116,7 +118,7 @@
     <!-- Vamos a repetir un bloque similar para cada conjunto de variables -->
     @foreach([
        
-        ['ultmenstruacion', 'Última Menstruación'],
+        ['ult_menstruacion', 'Última Menstruación'],
         ['embarazos', 'Embarazos'],
         ['partos', 'Partos'],
         ['abortos', 'Abortos'],
@@ -177,7 +179,8 @@
     <label class="text-sm font-medium text-gray-700 mx-4 mr-2">
         Edad: 
     </label>
-    <input type="text" wire:model="antEdit.edad_{{ $variable4 }}" class="mr-2 mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Edad">
+   
+    <input type="text" wire:model="antEdit.edad_{{ $variable4 }}" class="w-20 mr-2 mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Edad">
     <label class="text-sm font-medium text-gray-700 mr-2">
         Enfermedades : 
     </label>
@@ -208,11 +211,18 @@
 </div>
         
     </div>
+
     @endforeach
 </div>
     </div>
     </div>
     </div>
+
+    @if($guardadoExitoso)
+            <div class="alert alert-success mt-4">
+                Los datos se guardaron correctamente.
+            </div>
+        @endif
 
     <div class="flex justify-end">
         <x-button type="submit" class="dark mt-4">Guardar Antecedentes</x-button>

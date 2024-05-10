@@ -38,7 +38,8 @@ class FormularioAntecedentes extends Component
     public $details_drogas;
     public $act_fisica;
     public $details_act_fisica;
-    public $ultmenstruacion;
+    public $ult_menstruacion;
+    public $details_ult_menstruacion;
     public $embarazos;
     public $details_embarazos;
     public $partos;
@@ -98,7 +99,8 @@ class FormularioAntecedentes extends Component
             'details_drogas' => '',
             'act_fisica' => '',
             'details_act_fisica' => '',
-            'ultmenstruacion' => '',
+            'ult_menstruacion' => '',
+            'details_ult_menstruacion' => '',
             'embarazos' => '',
             'details_embarazos' => '',
             'partos' => '',
@@ -128,6 +130,7 @@ class FormularioAntecedentes extends Component
     ];
 
     public $HayAntecedentes;
+    public $guardadoExitoso = false;
 
     public function mount(){
 
@@ -180,7 +183,8 @@ class FormularioAntecedentes extends Component
             'details_drogas' => $ant->details_drogas,
             'act_fisica' => (bool) $ant->act_fisica,
             'details_act_fisica' => $ant->details_act_fisica,
-            'ultmenstruacion' => (bool)$ant->ult_menstruacion,
+            'ult_menstruacion' => (bool)$ant->ult_menstruacion,
+            'details_ult_menstruacion' => $ant->details_ult_menstruacion,
             'embarazos' => (bool) $ant->embarazos,
             'details_embarazos' => $ant->details_embarazos,
             'partos' => (bool) $ant->partos,
@@ -208,6 +212,8 @@ class FormularioAntecedentes extends Component
             'edad_hno2' => $ant->edad_hno2,
             'causa_hno2' => $ant->causa_hno2,
         ];
+
+       
 
     }
 
@@ -246,7 +252,8 @@ class FormularioAntecedentes extends Component
             'details_drogas' => $this->antEdit['details_drogas'],
             'act_fisica' => (bool)$this->antEdit['act_fisica'],
             'details_act_fisica' => $this->antEdit['details_act_fisica'],
-            'ult_menstruacion' => (bool)$this->antEdit['ultmenstruacion'],
+            'ult_menstruacion' => (bool)$this->antEdit['ult_menstruacion'],
+            'details_ult_menstruacion' => $this->antEdit['details_ult_menstruacion'],
             'embarazos' => (bool)$this->antEdit['embarazos'],
             'details_embarazos' => $this->antEdit['details_embarazos'],
             'partos' => (bool)$this->antEdit['partos'],
@@ -275,6 +282,10 @@ class FormularioAntecedentes extends Component
             'causa_hno2' => $this->antEdit['causa_hno2']
             
         ]);
+
+        $this->guardadoExitoso = true;
+
+        
     }
 
 
