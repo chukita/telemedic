@@ -12,7 +12,9 @@
                   <p>Listado de Solicitudes de consultas médicas.</p>
                 </div>
                 <div class="flex justify-end">
-                <x-button><a style="color:white;" href="{{ route('paciente.solicitud-medica') }}">Crear Nueva</a>
+                <x-button class="mr-4"><a style="color:white;" href="{{ route('antecedentes') }}">Cargar Antecedentes</a>
+</x-button>
+                <x-button><a style="color:white;" href="{{ route('paciente.solicitud-medica') }}">Crear Nueva Solicitud</a>
 </x-button></div>
 <br/>
                 <table class="table table-bordered">

@@ -1,4 +1,10 @@
 <div>
+<x-breadcrumb :segments="[
+    ['name' => 'Inicio', 'url' => route('paciente.inicio')],
+    ['name' => 'Solicitudes', 'url' => route('paciente.listado-solicitud-medica')],
+    ['name' => 'Antecedentes', 'url' => route('paciente.solicitud-medica')],
+  
+  ]" />
 <h6 class="font-semibold leading-tight px-4 ">
            Planilla de antecedentes
         </h6>
