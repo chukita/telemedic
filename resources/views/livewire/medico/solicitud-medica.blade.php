@@ -27,7 +27,7 @@
           <div class="flex justify-end">
             <x-button>Ver Historia Clinica</x-button>
           </div>
-          <form wire:submit.prevent="enviarFormulario">
+          <form wire:submit.prevent="enviarFormulario" >
               <div class="card-body">
               <div class="form-group">
               <x-label>Paciente</x-label>
@@ -43,6 +43,42 @@
               @endif
                        
               </div>
+                
+              <div>
+                <!-- Reproductor de Audio -->
+                @if ($audioData)
+              
+                   <div x-data x-init="$nextTick(() => {                     
+                            let audioElement = document.getElementById('myAudio');
+                            if (audioElement) {
+                             
+                              audioElement.addEventListener('play', function() {
+                                  console.log('Audio is playing');
+                              });
+                      
+              
+                              audioElement.addEventListener('error', function(event) {
+                                  console.error('Error en el elemento de audio:', event);
+                              });
+                      
+                       
+                      
+                          } else {
+                              console.error('El elemento de audio no se encontró');
+                          }
+                        })">
+                        <x-button id="playButton">Reproducir</x-button>
+                        <input type="range" min="0" max="1" step="0.1" value="1" id="volumeControl">
+
+                        <audio id="myAudio" controls>
+                            <source src="{{ asset('storage/' . $audioData) }}" type="audio/ogg">
+                            Tu navegador no soporta el elemento de audio.
+                        </audio>
+                    </div>
+                @else
+                    <p>No se encontró el audio para esta solicitud.</p>
+                @endif
+            </div>
               @if($id)
               <div class="form-group">
                 <x-label>Fecha de creación</x-label>
@@ -53,7 +89,11 @@
                   <x-label>Estado</x-label>
                   <x-input wire:model="estado" class="w-full"  disabled/>
                   </div>
+
+                  
                   @endif
+
+                  
                   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     @if($estado=='Pendiente Revision')
                     <button type="submit" wire:click="rechazar" wire:loading.attr="disabled" class="btn btn-danger me-md-2"><i class="fas fa-times"></i> Rechazar</button>
@@ -67,10 +107,26 @@
                     </div>
   
                     </div>
-          </form>
+                  
+                  </form>
   
         </div>
-  
+<script>
+        const playButton = document.getElementById('playButton');
+        const audioElement = document.getElementById('myAudio');
+        const volumeControl = document.getElementById('volumeControl');
+
+        playButton.addEventListener('click', function() {
+         
+            audioElement.play();
+
+        });
+        
+
+        volumeControl.addEventListener('input', function() {
+            audioElement.volume = parseFloat(volumeControl.value);
+        });
+        </script>     
   </div>
   
   

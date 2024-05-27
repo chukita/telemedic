@@ -17,6 +17,8 @@ class MSolicitudMedica extends Component
     public $estado;
     public $rechazada = false;
     public $aceptada = false;
+    public $audioData;
+
  
     public function mount($id)
     {
@@ -27,7 +29,7 @@ class MSolicitudMedica extends Component
         $this->descripcion=$this->solicitud->descripcion;
         $this->created_at=$this->solicitud->created_at;
         $this->estado=$this->solicitud->estado;
-
+        $this->audioData=$this->solicitud->audio;
 
     }
     public function enviarFormulario(){
@@ -62,6 +64,8 @@ class MSolicitudMedica extends Component
 
     public function render()
     {
-        return view('livewire.medico.solicitud-medica');
+        return view('livewire.medico.solicitud-medica', [
+            'audioData' => $this->audioData,
+        ]);
     }
 }

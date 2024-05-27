@@ -21,6 +21,7 @@
         <link href="{{ asset('vendor/adminlte/dist/css/adminlte.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/fontawesome-free/css/fontawesome.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/fontawesome-free/css/solid.css') }}" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.8.2/alpine.min.js" defer></script>
 
         <!-- Styles -->
         @livewireStyles
@@ -50,6 +51,8 @@
 
         @livewireScripts
  <!-- Scripts de AdminLTE -->
+
+
  <script src="{{ asset('vendor/adminlte/dist/js/adminlte.js') }}"></script>
     </body>
 </html>
